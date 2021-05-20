@@ -28,3 +28,6 @@ fclean:		clean
 	$(RM) $(NAME)
 
 re:			fclean all
+
+run:
+			gcc main.c -L. -lasm && ./a.out
