@@ -6,7 +6,7 @@
 #    By: pgomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 12:39:58 by pgomez-a          #+#    #+#              #
-#    Updated: 2021/05/21 12:49:14 by pgomez-a         ###   ########.fr        #
+#    Updated: 2021/05/21 13:57:59 by pgomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,3 @@ fclean:		clean
 	@$(RM) $(NAME)
 
 re:			fclean all
-
-run:
-	@gcc -Wall -Werror -Wextra  main.c -L. -lasm && ./a.out
