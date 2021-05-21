@@ -670,7 +670,7 @@ int	main(void)
 	printf("errno: %d\n\n", errno);
 	*****************************/
 
-	/************ STRCMP ***********/
+	/************ STRCMP ***********
 
 	int	countTrue;
 	int	countMine;
@@ -947,13 +947,28 @@ int	main(void)
 	else
 		printf("\033[91mKO\033[39m\n");
 	printf("\n");
-	/*****************************/
+
+
+
+	printf("\033[30;48;5;178m*** hola == \"\" ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("hola", "");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("hola", "");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+	*****************************/
 	
 
 	/*********** STRCPY ***********
 	char	dst[10];
 	char	*output;
-
 
 	printf("\033[30;48;5;9m***** FT_STRCPY ****\033[0m\n");
 	printf("\033[30;48;5;178m***** 10 <-- 0 *****\033[0m\n");
@@ -1059,4 +1074,138 @@ int	main(void)
 	printf("output: %p\n", output);
 	*****************************/
 
+	/*********** STRDUP ***********/
+	char	*dst;
+
+	printf("\033[30;48;5;9m***** FT_STRDUP ****\033[0m\n");
+	printf("\033[30;48;5;178m******* hola *******\033[0m\n");
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = strdup("Hola");
+	printf("strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n", dst);
+	free(dst);
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = ft_strdup("Hola");
+	printf("ft_strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n\n", dst);
+	free(dst);
+
+
+
+	printf("\033[30;48;5;178m******* \"\" *******\033[0m\n");
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = strdup("");
+	printf("strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n", dst);
+	free(dst);
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = ft_strdup("");
+	printf("ft_strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n\n", dst);
+	free(dst);
+
+
+
+	printf("\033[30;48;5;178m******* . *******\033[0m\n");
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = strdup(".");
+	printf("strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n", dst);
+	free(dst);
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = ft_strdup(".");
+	printf("ft_strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n\n", dst);
+	free(dst);
+
+
+
+	printf("\033[30;48;5;178m******* src = novacio *******\033[0m\n");
+	char	srcOne[] = "novacio";
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = strdup(srcOne);
+	printf("strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n", dst);
+	free(dst);
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = ft_strdup(srcOne);
+	printf("ft_strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n\n", dst);
+	free(dst);
+
+
+
+	printf("\033[30;48;5;178m******* src = \"\" *******\033[0m\n");
+	char	srcTwo[] = "";
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = strdup(srcTwo);
+	printf("strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n", dst);
+	free(dst);
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = ft_strdup(srcTwo);
+	printf("ft_strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n\n", dst);
+	free(dst);
+
+
+
+	printf("\033[30;48;5;178m******* src[5] *******\033[0m\n");
+	char	srcThree[5];
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = strdup(srcThree);
+	printf("strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n", dst);
+	free(dst);
+
+	errno = 0;
+	dst = NULL;
+	printf("dst --> %p\n", dst);
+	dst = ft_strdup(srcThree);
+	printf("ft_strdup: %s\n", dst);
+	printf("errno: %d\n", errno);
+	printf("dst --> %p\n\n\n", dst);
+	free(dst);
+	/*****************************/
 }
