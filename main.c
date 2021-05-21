@@ -670,7 +670,7 @@ int	main(void)
 	printf("errno: %d\n\n", errno);
 	*****************************/
 
-	/************ STRCMP ***********
+	/************ STRCMP ***********/
 
 	int	countTrue;
 	int	countMine;
@@ -931,7 +931,23 @@ int	main(void)
 	else
 		printf("\033[91mKO\033[39m\n");
 	printf("\n");
-	*****************************/
+
+
+
+	printf("\033[30;48;5;178m*** \\xff\\xff == \\xff ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("\xff\xff", "\xff");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("\xff\xff", "\xff");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+	/*****************************/
 	
 
 	/*********** STRCPY ***********

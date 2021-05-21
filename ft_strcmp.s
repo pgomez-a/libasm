@@ -5,7 +5,9 @@ _ft_strcmp:
 
 .loop:
 	cmp		byte [rdi], 0x00
-	je		.equal
+	je		.src
+	cmp		byte [rsi], 0x00
+	je		.dst
 	mov		bl, byte [rdi]
 	mov		cl, byte [rsi]
 	cmp		bl, cl
@@ -15,14 +17,15 @@ _ft_strcmp:
 	inc		rsi
 	jmp		.loop
 
-.equal:
+.src:
 	cmp		byte [rsi], 0x00
 	je		.end
-	mov		bl, byte [rdi]
-	mov		cl, byte [rsi]
-	cmp		bl, cl
-	jg		.greater
-	jl		.smaller
+	jmp		.smaller
+
+.dst:
+	cmp		byte [rdi], 0x00
+	je		.end
+	jmp		.greater
 
 .greater:
 	mov		rax, 1
