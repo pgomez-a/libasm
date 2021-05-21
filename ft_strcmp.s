@@ -25,16 +25,12 @@ _ft_strcmp:
 	jl		.smaller
 
 .greater:
-	sub		bl, cl
-	mov		al, bl
-	imul	eax, 1
+	mov		rax, 1
 	ret
 
 
 .smaller:
-	sub		cl, bl
-	mov		al, cl
-	imul	eax, -1
+	mov		rax, -1
 	ret
 
 .end:

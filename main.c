@@ -343,7 +343,7 @@ int	main(void)
 	countTrue = 0;
 	write(1, "write: |", 8);
 	errno = 0;
-	countTrue = write(1, "", 5);
+	countTrue = write(1, "1010101010", 5);
 	tmp = errno;
 	write(1, "|\n", 2);
 	printf("countTrue = %d\n", countTrue);
@@ -352,7 +352,7 @@ int	main(void)
 	countMine = 0;
 	ft_write(1, "ft_write: |", 11);
 	errno = 0;
-	countMine = ft_write(1, "", 5);
+	countMine = ft_write(1, "1010101010", 5);
 	tmp = errno;
 	ft_write(1, "|\n", 2);
 	printf("countMine = %d\n", countMine);
@@ -365,7 +365,7 @@ int	main(void)
 	countTrue = 0;
 	write(1, "write: |", 8);
 	errno = 0;
-	countTrue = write(1, "1", 10);
+	countTrue = write(1, "10101010101010101010", 10);
 	tmp = errno;
 	write(1, "|\n", 2);
 	printf("countTrue = %d\n", countTrue);
@@ -374,7 +374,7 @@ int	main(void)
 	countMine = 0;
 	ft_write(1, "ft_write: |", 11);
 	errno = 0;
-	countMine = ft_write(1, "1", 10);
+	countMine = ft_write(1, "10101010101010101010", 10);
 	tmp = errno;
 	ft_write(1, "|\n", 2);
 	printf("countMine = %d\n", countMine);
@@ -508,11 +508,11 @@ int	main(void)
 
 
 	
-	printf("\033[30;48;5;178m****** BAD_FD 4 ******\033[0m\n");
+	printf("\033[30;48;5;178m****** BAD_FD -1 ******\033[0m\n");
 	countTrue = 0;
 	write(1, "write: |", 8);
 	errno = 0;
-	countTrue = write(4, "50505050505050505050505050505050505050505050505050", 50);
+	countTrue = write(-1, "50505050505050505050505050505050505050505050505050", 50);
 	tmp = errno;
 	write(1, "|\n", 2);
 	printf("countTrue = %d\n", countTrue);
@@ -521,27 +521,526 @@ int	main(void)
 	countMine = 0;
 	ft_write(1, "ft_write: |", 11);
 	errno = 0;
-	countMine = ft_write(4, "50505050505050505050505050505050505050505050505050", 50);
+	countMine = ft_write(-1, "50505050505050505050505050505050505050505050505050", 50);
 	tmp = errno;
 	ft_write(1, "|\n", 2);
 	printf("countMine = %d\n", countMine);
 	printf("errno = %d\n\n", tmp);
 	*****************************/
 
+	/*********** READ ***********
 	char	buffer[10];
-	char	temp[10];
+	char	tmp[10];
 	int		countTrue;
 	int		countMine;
 
+	printf("\033[30;48;5;9m**** FT_READ ***\033[0m\n");
+	printf("\033[30;48;5;178m*** DEFINED 0 ***\033[0m\n");
 	errno = 0;
 	countTrue = 0;
-	countTrue = read(-5, buffer, 20);
+	write(1, "read: ", 6);
+	countTrue = read(0, buffer, 5);
 	printf("countTrue: %d\n", countTrue);
 	printf("errno: %d\n", errno);
 
 	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(0, tmp, 5);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** DEFINED 10 ***\033[0m\n");
+	errno = 0;
 	countTrue = 0;
-	countTrue = ft_read(-5, buffer, 20);
+	write(1, "read: ", 6);
+	countTrue = read(0, buffer, 10);
 	printf("countTrue: %d\n", countTrue);
 	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(0, tmp, 10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** DEFINED -10 ***\033[0m\n");
+	errno = 0;
+	countTrue = 0;
+	write(1, "read: ", 6);
+	countTrue = read(0, buffer, -10);
+	printf("countTrue: %d\n", countTrue);
+	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(0, tmp, -10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** BAD_FD  -1 ***\033[0m\n");
+	errno = 0;
+	countTrue = 0;
+	write(1, "read: ", 6);
+	countTrue = read(-1, buffer, 10);
+	printf("countTrue: %d\n", countTrue);
+	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(-1, tmp, 10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** BAD_FD  1 ***\033[0m\n");
+	errno = 0;
+	countTrue = 0;
+	write(1, "read: ", 6);
+	countTrue = read(1, buffer, 10);
+	printf("countTrue: %d\n", countTrue);
+	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(1, tmp, 10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** BAD_FD  2 ***\033[0m\n");
+	errno = 0;
+	countTrue = 0;
+	write(1, "read: ", 6);
+	countTrue = read(2, buffer, 10);
+	printf("countTrue: %d\n", countTrue);
+	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(2, tmp, 10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** BAD_FD  3 ***\033[0m\n");
+	errno = 0;
+	countTrue = 0;
+	write(1, "read: ", 6);
+	countTrue = read(-3, buffer, 10);
+	printf("countTrue: %d\n", countTrue);
+	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(3, tmp, 10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+
+
+
+	printf("\033[30;48;5;178m*** BAD_FD  4 ***\033[0m\n");
+	errno = 0;
+	countTrue = 0;
+	write(1, "read: ", 6);
+	countTrue = read(4, buffer, 10);
+	printf("countTrue: %d\n", countTrue);
+	printf("errno: %d\n", errno);
+
+	errno = 0;
+	countMine = 0;
+	write(1, "ft_read: ", 9);
+	countMine = ft_read(4, tmp, 10);
+	printf("countMine: %d\n", countMine);
+	printf("errno: %d\n\n", errno);
+	*****************************/
+
+	/************ STRCMP ***********
+
+	int	countTrue;
+	int	countMine;
+
+	printf("\033[30;48;5;9m***** FT_STRCMP ****\033[0m\n");
+	printf("\033[30;48;5;178m*** hola == hola ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("hola", "hola");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("hola", "hola");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+
+	printf("\033[30;48;5;178m*** largo == largo ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("estoesunacadenadecaracteresmuylargajejeje", "estoesunacadenadecaracteresmuylargajejeje");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("estoesunacadenadecaracteresmuylargajejeje", "estoesunacadenadecaracteresmuylargajejeje");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+
+	printf("\033[30;48;5;178m*** e == e ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("ee", "ee");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("ee", "ee");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** "" == "" ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("", "");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("", "");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** a  != p ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("a", "p");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("a", "p");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** p  != a ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("p", "a");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("p", "a");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** aaa  != apa ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("aaa", "apa");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("aaa", "apa");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** apa  != aaa ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("apa", "aaa");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("apa", "aaa");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** aaa  != aab ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("aaa", "aab");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("aaa", "aab");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** aab  != aaa ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("aab", "aaa");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("aab", "aaa");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** estacadenaesigual  != estacadenanoesigual ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("estacadenaesigual", "estacadenanoesigual");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("estacadenaesigual", "estacadenanoesigual");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** estacadenanoesigual  != estacadenaesigual ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("estacadenanoesigual", "estacadenaesigual");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("estacadenanoesigual", "estacadenaesigual");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** aaaaa  != aaaaaaaaaa ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("aaaaa", "aaaaaaaaaa");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("aaaaa", "aaaaaaaaaa");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** aaaaaaaaaz  != aaaaa ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("aaaaaaaaaz", "aaaaa");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("aaaaaaaaaz", "aaaaa");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** aaaaaaaaaa  != aaaaz ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("aaaaaaaaaa", "aaaaz");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("aaaaaaaaaa", "aaaaz");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+
+
+
+	printf("\033[30;48;5;178m*** 8912.762  != 8912$762 ***\033[0m\n");
+	countTrue = 0;
+	countTrue = strcmp("8912.762", "8912$762");
+	printf("strcmp --> countTrue: %d\n", countTrue);
+
+	countMine = 0;
+	countMine = ft_strcmp("8912.762", "8912$762");
+	printf("ft_strcmp --> countMine: %d\n", countMine);
+	if (countTrue == countMine)
+		printf("\033[92mOK\033[39m\n");
+	else
+		printf("\033[91mKO\033[39m\n");
+	printf("\n");
+	*****************************/
+	
+
+	/*********** STRCPY ***********
+	char	dst[10];
+	char	*output;
+
+
+	printf("\033[30;48;5;9m***** FT_STRCPY ****\033[0m\n");
+	printf("\033[30;48;5;178m***** 10 <-- 0 *****\033[0m\n");
+	bzero(dst, 10);
+	output = NULL;
+	output = strcpy(dst, "");
+	printf("strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+	bzero(dst, 10);
+	output = NULL;
+	output = ft_strcpy(dst, "");
+	printf("ft_strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+	
+
+	printf("\033[30;48;5;178m*** 10 <-- 1 ***\033[0m\n");
+	bzero(dst, 10);
+	output = NULL;
+	output = strcpy(dst, "1");
+	printf("strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+	bzero(dst, 10);
+	output = NULL;
+	output = ft_strcpy(dst, "1");
+	printf("ft_strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+
+
+	printf("\033[30;48;5;178m*** 10 <-- 2 ***\033[0m\n");
+	bzero(dst, 10);
+	output = NULL;
+	output = strcpy(dst, "22");
+	printf("strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+	bzero(dst, 10);
+	output = NULL;
+	output = ft_strcpy(dst, "22");
+	printf("ft_strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+
+
+	printf("\033[30;48;5;178m*** 10 <-- 5 ***\033[0m\n");
+	bzero(dst, 10);
+	output = NULL;
+	output = strcpy(dst, "55555");
+	printf("strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+	bzero(dst, 10);
+	output = NULL;
+	output = ft_strcpy(dst, "55555");
+	printf("ft_strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+
+
+	printf("\033[30;48;5;178m*** 10 <-- 9 ***\033[0m\n");
+	bzero(dst, 10);
+	output = NULL;
+	output = strcpy(dst, "999999999");
+	printf("strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+
+	bzero(dst, 10);
+	output = NULL;
+	output = ft_strcpy(dst, "999999999");
+	printf("ft_strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+	
+
+
+	printf("\033[30;48;5;178m*** str <-- str ***\033[0m\n");
+	char	src[] = "adios";
+
+	bzero(dst, 10);
+	output = NULL;
+	printf("src: %p\n", src);
+	printf("dst: %p\n", dst);
+	printf("output: %p\n", output);
+	output = strcpy(dst, src);
+	printf("strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+	printf("src: %p\n", src);
+	printf("dst: %p\n", dst);
+	printf("output: %p\n\n\n", output);
+
+	bzero(dst, 10);
+	output = NULL;
+	printf("src: %p\n", src);
+	printf("dst: %p\n", dst);
+	printf("output: %p\n", output);
+	output = ft_strcpy(dst, src);
+	printf("ft_strcpy --> %s\n", dst);
+	printf("output --> %s\n\n", output);
+	printf("src: %p\n", src);
+	printf("dst: %p\n", dst);
+	printf("output: %p\n", output);
+	*****************************/
+
 }
