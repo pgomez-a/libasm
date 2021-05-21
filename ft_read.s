@@ -1,33 +1,40 @@
-extern	___error
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_read.s                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pgomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/05/21 13:00:55 by pgomez-a          #+#    #+#              #
+#    Updated: 2021/05/21 13:14:47 by pgomez-a         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-section	.text
-global	_ft_read
+; ssize_t	read(int fildes, void *buf, size_t nbytes);
 
+		global	_ft_read		; entrypoint is in _ft_read
+		extern	___error		; ___error function will be used
+		section	.text
 _ft_read:
-	push	rdi
-	push	rsi
-	push	rdx
-
-	mov		rdx, rdx
-	mov		rsi, rsi
-	mov		rdi, rdi 
-	mov		rax, 0x2000003
-	syscall
-
-	jc		.error
-
-	pop		rdx
-	pop		rsi
-	pop		rdi
-	ret
-
+		push	rdi				; push before syscall to prevent losses
+		push	rsi
+		push	rdx
+		mov		rdx, rdx
+		mov		rsi, rsi
+		mov		rdi, rdi 
+		mov		rax, 0x2000003	; write rsi in rdi rdx bytes
+		syscall
+		jc		.error			; if jc is activated, an error occurred
+		pop		rdx				; if no error occurred
+		pop		rsi
+		pop		rdi
+		ret
 .error:
-	mov		rdx, rax
-	call	___error
-	mov		[rax], rdx
-	mov		rax, -1
-
-	pop		rdx
-	pop		rsi
-	pop		rdi
-	ret
+		mov		rdx, rax		; store code of error
+		call	___error		; get errno variable address
+		mov		[rax], rdx		; store code error in errno
+		mov		rax, -1			; return -1 to indicate an error occurred
+		pop		rdx
+		pop		rsi
+		pop		rdi
+		ret
