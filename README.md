@@ -75,3 +75,5 @@ This entire cycle is known as the **Fetch Cycle**, and it defines how a CPU exec
 
 ### Before ending...
 ... There are many more concepts that you can learn with this project. Try looking up **what is a Harvard architecture, what is a driver, what is a BIOS, what is a system call, or why to call the variable errno**. You will enter an amazing world to explore, but where you will also get very frustrated while looking for more practical knowledge in case you want to learn to program in assembler. Good luck! :)
+
+<img width="1064" alt="CPU" src="https://user-images.githubusercontent.com/74931024/119235579-75dbd700-bb33-11eb-811f-25671ffd412b.png">
