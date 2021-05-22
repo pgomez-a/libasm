@@ -69,3 +69,6 @@ We will start at the program counter (PC). PC is a register that contains the me
 Once in the execution phase, the first step is to decode the instruction to analyze the different micro-operations to be performed. Depending on the operation, different electronic components are needed. Inside the control unit there is a control block that does this (identifies the operation to be performed). After this, the code is sent to the ALU, which also receives the necessary data to work with the opcode. When the operation is performed, the result can be stored in memory or in a register. And now, the execution phase is over, you have to start again in the search phase.<br>
 <br>
 This entire cycle is known as the Fetch Cycle, and it defines how a CPU executes the instructions it receives.
+
+### Before ending...
+... There are many more concepts that you can learn with this project. Try looking up what is a Harvard architecture, what is a driver, what is a BIOS, what is a system call, or why to call the variable errno. You will enter an amazing world to explore, but where you will also get very frustrated while looking for more practical knowledge in case you want to learn to program in assembler. Good luck! :)
