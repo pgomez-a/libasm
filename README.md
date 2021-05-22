@@ -5,7 +5,9 @@ Assembly language is also called assembly or symbolic machine language.
 ### Brief Introduction
 By doing **libasm** we will learn to program in assembly language and, what I think is the most important part, we will learn **how the CPU works when we execute a program**. The majority of the time, we have heard that the CPU is like the "brain" of the computer, but how does it really work?
 <br><br>
-As I have done so far, I want to show you the things that I consider to be the most important to know before starting the project in case you want to. However, during all the projects I have done at 42, I have found that we waste a lot of time searching for unnecesary information before starting a new challenge. For this reason, and because most of the time it is impossible for me to find information in Spanish, I have decided to create a wesite where I will put a brief introduction to most of the concepts that I have seen during my trip. After the explanation, I will show you some links (some in Spanish and some in English) to a more detailed explanation of the concept so that you can figure out what to study when starting a project. This way you can save time when searching, being able to use this time to learn more.<br>
+As I have done so far, I want to show you the things that I consider to be the most important to know before starting the project in case you want to. However, during all the projects I have done at 42, I have found that we waste a lot of time searching for unnecesary information before starting a new challenge.
+<img width="382" align="right" alt="asm code" src="https://user-images.githubusercontent.com/74931024/119234299-6d809d80-bb2d-11eb-9442-e14be2643233.png">For this reason, and because most of the time it is impossible for me to find information in Spanish, I have decided to create a wesite where I will put a brief introduction to most of the concepts that I have seen during my trip. After the explanation, I will show you some links (some in Spanish and some in English) to a more detailed explanation of the concept so that you can figure out what to study when starting a project. This way you can save time when searching, being able to use this time to learn more.<br>
+
 **I am in progress of making the website. Once it's done, I'll post the link here.**
 
 ### Objectives
@@ -32,6 +34,7 @@ Low-level languages are those that perform direct control over the computer hard
 Since low-level languages are more interrelated with the hardware infrastructure, it is easier to translate into machine language.
 
 ### Memory distribution
+<img align="left" width="251" alt="stack" src="https://user-images.githubusercontent.com/74931024/119233799-e4686700-bb2a-11eb-87c9-632539262ac0.png">
 Memory is simply an array of bytes, where each byte has its own address. When you run a program, the operating system gives a portion of memory to the program. That memory, known as address space, is divided into different segments.<br>
 
 ### Components of a CPU
