@@ -1,6 +1,8 @@
 # libasm
 <img width="1931" alt="libasm mark" src="https://user-images.githubusercontent.com/74931024/119336730-455c8000-bc8e-11eb-97c5-5883f3cf4fb5.png">
 
+**If you want to learn more about IT topics, visit my website:** [**IA Notes**](https://ia-notes.com/)
+
 Assembly language, often called **asm**, is a low-level language for computers or other programmable devices, where there is a strong relationship between the device's hardware and the the language. Each computer has a specific asm. In contrast, high-level languages tend to be cross-platform, although they need to be compiled or interpreted.<br>
 Assembly language is also called assembly or symbolic machine language.
 
@@ -10,7 +12,7 @@ By doing **libasm** we will learn to program in assembly language and, what I th
 As I have done so far, I want to show you the things that I consider to be the most important to know before starting the project in case you want to. However, during all the projects I have done at 42, I have found that we waste a lot of time searching for unnecesary information before starting a new challenge.
 <img width="382" align="right" alt="asm code" src="https://user-images.githubusercontent.com/74931024/119234299-6d809d80-bb2d-11eb-9442-e14be2643233.png">For this reason, and because most of the time it is impossible for me to find information in Spanish, I have decided to create a wesite where I will put a brief introduction to most of the concepts that I have seen during my trip. After the explanation, I will show you some links (some in Spanish and some in English) to a more detailed explanation of the concept so that you can figure out what to study when starting a project. This way you can save time when searching, being able to use this time to learn more.<br>
 
-**I am in progress of making the website. Once it's done, I'll post the link here.**
+[**IA Notes**](https://ia-notes.com/)
 
 ### Objectives
 With this project we will have to replicate, in assembly language, the following functions:
