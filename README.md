@@ -6,6 +6,26 @@
 Assembly language, often called **asm**, is a low-level language for computers or other programmable devices, where there is a strong relationship between the device's hardware and the the language. Each computer has a specific asm. In contrast, high-level languages tend to be cross-platform, although they need to be compiled or interpreted.<br>
 Assembly language is also called assembly or symbolic machine language.
 
+### How to use libasm?
+1. Clone libasm repository:
+
+       git clone https://github.com/pgomez-a/libasm.git && cd libasm
+
+2. Run <b>make</b> to create the static library <b>libasm.a</b>:
+
+       make
+
+3. If your main function is in the current directory, include the header "libasm.h":
+
+       #include "libasm.h"
+       
+       int main(void)
+       {
+       
+4. Compile with <b>gcc</b> the main.c file and use the created library:
+
+       gcc main.c -L. -lasm
+
 ### Brief Introduction
 By doing **libasm** we will learn to program in assembly language and, what I think is the most important part, we will learn **how the CPU works when we execute a program**. The majority of the time, we have heard that the CPU is like the "brain" of the computer, but how does it really work?
 <br><br>
