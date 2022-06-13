@@ -1,7 +1,7 @@
 # libasm
 <img width="1931" alt="libasm mark" src="https://user-images.githubusercontent.com/74931024/119336730-455c8000-bc8e-11eb-97c5-5883f3cf4fb5.png">
 
-**If you want to learn more about IT topics, visit my website:** [**IA Notes**](https://ia-notes.com/)
+**If you want to learn more about IT topics, [I invite you to join my Patreon channel](https://www.patreon.com/pgomeza) and visit my website:** [**IA Notes**](https://ia-notes.com/)
 
 Assembly language, often called **asm**, is a low-level language for computers or other programmable devices, where there is a strong relationship between the device's hardware and the the language. Each computer has a specific asm. In contrast, high-level languages tend to be cross-platform, although they need to be compiled or interpreted.<br>
 Assembly language is also called assembly or symbolic machine language.
